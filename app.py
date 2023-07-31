@@ -8,7 +8,7 @@ import re
 import pandas as pd
 
 # Function to call the API and return the response
-def call_api(prompt,url):
+def call_api(prompt):
     url = "https://tasty-rings-wear.loca.lt/text2img"  # your API endpoint
     payload = {
       "prompt": prompt,
@@ -33,10 +33,26 @@ st.text('You have to mention him as "alicem_seker" 🙃')
 # User input
 #url = st.text_input('API URL:', '/text2img')
 prompt = st.text_input('Enter your prompt:', 'a selfie of alicem_seker with Rihanna')
-
-if st.button('Generate'):
+button = st.button('Generate',key = "1")
+image1 = Image.open('app_images/batman_2.png')
+image2 = Image.open('app_images/snoop.png')
+image3 = Image.open('app_images/beyonce.jpeg')
+image4 = Image.open('app_images/dungeon_master.png')
+holder1 = st.empty()
+holder2 = st.empty()
+holder3 = st.empty()
+holder4 = st.empty()
+holder1.image(image2,caption ='a selfie of alicem_seker person with Snoop Dogg')
+holder2.image(image3,caption ='a selfie of alicem_seker person with Beyonce')
+holder3.image(image4,caption ='a portrait of alicem_seker person as a Dungeon Master')
+holder4.image(image1,caption ='a black and white photo of alicem_seker')
+if button:
+    holder1.empty()
+    holder2.empty()
+    holder3.empty()
+    holder4.empty()
     # Get the images from the API
-    data = call_api(prompt,url)
+    data = call_api(prompt)
     images = data["images"]
 
     # Search for the word after " as "
@@ -52,12 +68,3 @@ if st.button('Generate'):
         # Display the image
         st.image(image, use_column_width=True)
         
-image1 = Image.open('app_images/batman_2.png')
-image2 = Image.open('app_images/snoop.png')
-image3 = Image.open('app_images/beyonce.jpeg')
-image4 = Image.open('app_images/dungeon_master.png')
-
-st.image(image2,caption ='a selfie of alicem_seker person with Snoop Dogg')
-st.image(image3,caption ='a selfie of alicem_seker person with Beyonce')
-st.image(image4,caption ='a portrait of alicem_seker person as a Dungeon Master')
-st.image(image1,caption ='a black and white photo of alicem_seker')
