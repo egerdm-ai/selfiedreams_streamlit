@@ -1,0 +1,18 @@
+!pip install -U autotrain-advanced
+!autotrain setup --update-torch
+!autotrain dreambooth \
+--model stabilityai/stable-diffusion-xl-base-1.0 \
+--output /content/output/ \
+--image-path /content/input/ \
+--prompt "photo of egeute person" \
+--class-prompt "photo of a person" \
+--resolution 512 \
+--batch-size 1 \
+--num-steps 500 \
+--checkpointing-steps 100000 \
+--fp16 \
+--gradient-accumulation 4 \
+--lr 1e-4 \
+--hub-token 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 \
+--hub-model-id egerdm/sdlx_dreambooth_ute \
+--push-to-hub 
