@@ -73,10 +73,9 @@ main_column_2.image(image3, caption ='a selfie of alicem_seker person with Beyon
 main_column_3.image(image4, caption ='a portrait of alicem_seker person as a Dungeon Master')
 main_column_4.image(image1, caption ='a black and white photo of alicem_seker')
 
-url = st.secrets["url"]
-
 if button:
     # Get the images from the API
+    url = st.secrets["url"]
     data = call_api(prompt,url)
     images = data["images"]
 
