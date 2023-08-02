@@ -72,6 +72,16 @@ st.markdown("""
         color: white;
         border: 2px solid white;
     }
+    .stButton>button:focused {
+        color: white;
+        background-color: #c770f0;
+        border: 2px solid white;
+    }
+    .stButton>button:active {
+        color: white;
+        background-color: #c770f0;
+        border: 2px solid white;
+    }
     /* Center the button on screens smaller than 600px */
     @media (max-width: 600px) {
         .stButton>button {
@@ -115,7 +125,7 @@ if button:
 
     with st.spinner('Loading...'):
         # Get the images from the API
-        url = "https://evil-moments-cheer.loca.lt/text2img"
+        url = st.secrets["url"]#"https://evil-moments-cheer.loca.lt/text2img"
         data = call_api(prompt,url)
         images = data["images"]
         
