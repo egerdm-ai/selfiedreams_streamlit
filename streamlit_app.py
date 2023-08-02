@@ -6,6 +6,7 @@ import io
 from PIL import Image
 import re
 import pandas as pd
+from io import BytesIO
 
 # Function to call the API and return the response
 def call_api(prompt,url):
@@ -31,20 +32,28 @@ def call_api(prompt,url):
 
 st.markdown("<h1 style='text-align: center; color: #c770f0;'>AIi Cemerator</h1>", unsafe_allow_html=True)
 
-left_column, main_column, right_column = st.columns([2,2,2])
+left_column, main_column, right_column = st.columns([5,5,5])
 img = Image.open('app_images/ali.jpg')
 new_width = 256
 new_height = int(new_width * img.height / img.width)
-
-# Resize the image
 image0 = img.resize((new_width, new_height))
-main_column.image(image0)
+
+# Convert the image to a base64 string
+buffered = BytesIO()
+image0.save(buffered, format="JPEG")
+image_base64 = base64.b64encode(buffered.getvalue()).decode()
+
+# Display the image in a center-aligned markdown string
+st.markdown(
+    f'<p align="center"><img src="data:image/jpeg;base64,{image_base64}" /></p>', 
+    unsafe_allow_html=True
+)
 
 st.markdown("<h2 style='text-align: center;'>Try the AI model that can generate images of Ali Cem!</h2>", unsafe_allow_html=True)
 st.markdown("<p style='text-align: center;'>You have to mention him as 'alicem_seker' 🙃</p>", unsafe_allow_html=True)
 
 # Add two columns (the left one for the text input and the right one for the button)
-left_column, right_column = st.columns([5,1])
+left_column, right_column = st.columns([4,1])
 
 
 
@@ -59,12 +68,22 @@ st.markdown("""
         width:6em; 
         font-size:1.5em;
     }
+    .stButton>button:hover {
+        color: white;
+        border: 2px solid white;
+    }
+    /* Center the button on screens smaller than 600px */
+    @media (max-width: 600px) {
+        .stButton>button {
+            display: block;
+            margin: 0 auto;
+        }
+    }
 </style>
 """, unsafe_allow_html=True)
 
 # Use the right_column for the button
 button = right_column.button('Generate')
-
 # Load images
 image1 = Image.open('app_images/batman_2.png')
 image2 = Image.open('app_images/snoop.png')
@@ -77,8 +96,6 @@ left_column_1, main_column_1, right_column_1 = st.columns([1,6,1])
 left_column_2, main_column_2, right_column_2 = st.columns([1,6,1])
 left_column_3, main_column_3, right_column_3 = st.columns([1,6,1])
 left_column_4, main_column_4, right_column_4 = st.columns([1,6,1])
-
-main_column_1.markdown("<br>", unsafe_allow_html=True)
 
 holder1 = main_column_1.empty()
 holder2 = main_column_1.empty()
