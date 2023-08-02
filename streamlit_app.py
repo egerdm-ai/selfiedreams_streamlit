@@ -66,19 +66,30 @@ left_column_2, main_column_2, right_column_2 = st.columns([1,6,1])
 left_column_3, main_column_3, right_column_3 = st.columns([1,6,1])
 left_column_4, main_column_4, right_column_4 = st.columns([1,6,1])
 
-# Use the main_columns to display your content
 main_column_1.markdown("<br>", unsafe_allow_html=True)
-main_column_1.image(image2, caption ='a selfie of alicem_seker person with Snoop Dogg')
-main_column_2.image(image3, caption ='a selfie of alicem_seker person with Beyonce')
-main_column_3.image(image4, caption ='a portrait of alicem_seker person as a Dungeon Master')
-main_column_4.image(image1, caption ='a black and white photo of alicem_seker')
+
+holder1 = main_column_1.empty()
+holder2 = main_column_1.empty()
+holder3 = main_column_1.empty()
+holder4 = main_column_1.empty()
+holder1.image(image2,caption ='a selfie of alicem_seker person with Snoop Dogg')
+holder2.image(image3,caption ='a selfie of alicem_seker person with Beyonce')
+holder3.image(image4,caption ='a portrait of alicem_seker person as a Dungeon Master')
+holder4.image(image1,caption ='a black and white photo of alicem_seker')
+
 
 if button:
+    
+    holder1.empty()
+    holder2.empty()
+    holder3.empty()
+    holder4.empty()
+    
     # Get the images from the API
-    url = st.secrets["url"]
+    url = "https://evil-moments-cheer.loca.lt/text2img"
     data = call_api(prompt,url)
     images = data["images"]
-
+    
     # Search for the word after " as "
     match = re.search(r' as (\w+)', prompt)
 
@@ -90,5 +101,5 @@ if button:
         image = Image.open(io.BytesIO(image_bytes))
 
         # Display the image
-        left_column, main_column, right_column = st.beta_columns([1,6,1])
+        left_column, main_column, right_column = st.columns([1,6,1])
         main_column.image(image, use_column_width=True)
