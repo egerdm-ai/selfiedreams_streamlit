@@ -30,11 +30,23 @@ def call_api(prompt,url):
 
 
 st.markdown("<h1 style='text-align: center; color: #c770f0;'>AIi Cemerator</h1>", unsafe_allow_html=True)
+
+left_column, main_column, right_column = st.columns([2,2,2])
+img = Image.open('app_images/ali.jpg')
+new_width = 256
+new_height = int(new_width * img.height / img.width)
+
+# Resize the image
+image0 = img.resize((new_width, new_height))
+main_column.image(image0)
+
 st.markdown("<h2 style='text-align: center;'>Try the AI model that can generate images of Ali Cem!</h2>", unsafe_allow_html=True)
 st.markdown("<p style='text-align: center;'>You have to mention him as 'alicem_seker' 🙃</p>", unsafe_allow_html=True)
 
 # Add two columns (the left one for the text input and the right one for the button)
 left_column, right_column = st.columns([5,1])
+
+
 
 # Use the left_column for the text input
 prompt = left_column.text_input('Enter your prompt:', 'a selfie of alicem_seker with Rihanna')
