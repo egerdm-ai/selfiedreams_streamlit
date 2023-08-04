@@ -7,10 +7,10 @@ import re
 import random
 import string
 #34.32.248.151
-url = "https://fair-results-melt.loca.lt/text2img"  # your API endpoint
+url = "https://tired-falcons-smell.loca.lt/text2img"  # your API endpoint
 
 payload = {
-  "prompt": "a vibrant portrait of kefe_clk transformed into a Disney character, with flowing hair, glowing eyes, colorful attire, magical background, magical powers,  digital painting, by renowned Disney concept artist captivating, attention to detail, expressive facial features –upbeta –upbeta",
+  "prompt": "a vibrant portrait of egeute transformed into a Disney character, with flowing hair, glowing eyes, colorful attire, magical background, magical powers,  digital painting, by renowned Disney concept artist captivating, attention to detail, expressive facial features –upbeta –upbeta",
   "negative_prompt": "bad quailty, disturbed",
   "scheduler": "EulerAncestralDiscreteScheduler",
   "image_height": 512,

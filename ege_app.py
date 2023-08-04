@@ -14,7 +14,6 @@ def call_api(prompt,url):
     payload = {
       "prompt": prompt,
       "negative_prompt": "((((open mouth)))), ((((visible hand)))), ((((ugly)))), (((duplicate))), ((morbid)), ((mutilated)), [out of frame], extra fingers, mutated hands, ((poorly drawn hands)), ((poorly drawn face)), (((deformed))), ((ugly)), blurry, ((bad anatomy)), (((bad proportions))), ((extra limbs)), cloned face, (((disfigured))), (bad anatomy), gross proportions, (malformed limbs), ((missing arms)), ((missing legs)), (((extra arms))), (((extra legs))), mutated hands, (fused fingers), (too many fingers), (((long neck)))",
-      "scheduler": "EulerAncestralDiscreteScheduler",
       "image_height": 512,
       "image_width": 512,
       "num_images": 4,
@@ -30,10 +29,10 @@ def call_api(prompt,url):
 # Use markdown to center text# Use markdown to center text
 
 
-st.markdown("<h1 style='text-align: center; color: #c770f0;'>AIi Cemerator</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: #c770f0;'>EGEnerator</h1>", unsafe_allow_html=True)
 
 left_column, main_column, right_column = st.columns([5,5,5])
-img = Image.open('app_images/ali.jpg')
+img = Image.open('app_images_3/anime.png')
 new_width = 256
 new_height = int(new_width * img.height / img.width)
 image0 = img.resize((new_width, new_height))
@@ -49,8 +48,8 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.markdown("<h2 style='text-align: center;'>Try the AI model that can generate images of Ali Cem!</h2>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center;'>You have to mention him as 'alicem_seker' 🙃</p>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center;'>Try the AI model that can generate images of Ege!</h2>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center;'>You have to mention him as 'egeute' 🙃</p>", unsafe_allow_html=True)
 
 # Add two columns (the left one for the text input and the right one for the button)
 left_column, right_column = st.columns([4,1])
@@ -58,7 +57,7 @@ left_column, right_column = st.columns([4,1])
 
 
 # Use the left_column for the text input
-prompt = left_column.text_input('Enter your prompt:', 'a selfie of alicem_seker with Rihanna')
+prompt = left_column.text_input('Enter your prompt:', 'a selfie of egeute with Rihanna')
 st.markdown("""
 <style>
     .stButton>button {
@@ -95,10 +94,10 @@ st.markdown("""
 # Use the right_column for the button
 button = right_column.button('Generate')
 # Load images
-image1 = Image.open('app_images/batman_2.png')
-image2 = Image.open('app_images/snoop.png')
-image3 = Image.open('app_images/beyonce.jpeg')
-image4 = Image.open('app_images/dungeon_master.png')
+image1 = Image.open('app_images_3/disney.png')
+image2 = Image.open('app_images_3/bunny.png')
+image3 = Image.open('app_images_3/animation.png')
+image4 = Image.open('app_images_3/cartoon.png')
 
 # Add three columns (the middle one is the main one)
 left_column_0, main_column_0, right_column_0 = st.columns([2,1,2])
@@ -112,10 +111,10 @@ holder2 = main_column_1.empty()
 holder3 = main_column_1.empty()
 holder4 = main_column_1.empty()
 
-holder1.image(image2,caption ='a selfie of alicem_seker person with Snoop Dogg')
-holder2.image(image3,caption ='a selfie of alicem_seker person with Beyonce')
-holder3.image(image4,caption ='a portrait of alicem_seker person as a Dungeon Master')
-holder4.image(image1,caption ='a black and white photo of alicem_seker')
+holder1.image(image2,caption ='a photo of egeute as a bunny')
+holder2.image(image3,caption ='a animated version of egeute ')
+holder3.image(image4,caption ='a illustration of egeute person as a cartoon character')
+holder4.image(image1,caption ='a photo of egeute as a disney character')
 
 if button:
     holder1.empty()
@@ -125,7 +124,7 @@ if button:
 
     with st.spinner('Loading...'):
         # Get the images from the API
-        url = st.secrets["url"]#"https://evil-moments-cheer.loca.lt/text2img"
+        url = "https://tired-falcons-smell.loca.lt/text2img" #st.secrets["url"]#"https://evil-moments-cheer.loca.lt/text2img"
         
         data = call_api(prompt,url)
         images = data["images"]
