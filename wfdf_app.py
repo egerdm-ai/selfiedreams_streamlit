@@ -25,7 +25,7 @@ if st.button('Send'):
 
     # Add the user query and API response to the chat history
     chat_history.append(('You', user_input))
-    chat_history.append(('AI', response))
+    chat_history.append(('', response))
 
     # Display the chat history
     for chat in chat_history:
