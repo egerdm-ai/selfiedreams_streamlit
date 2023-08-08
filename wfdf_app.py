@@ -7,9 +7,10 @@ def send_query(query):
     data = {
         'query': query
     }
-    url = st.secrets["url"]
-    response = requests.post(url, json=data)
-    return response.json()['answer']
+    response = requests.post('https://4a95-34-86-206-243.ngrok-free.app/ask', json=data)
+    print(response)  # print the raw response
+    print(type(response))  # print the type of the response
+    return response.json()
 
 # Chat history to display the conversation
 chat_history = []
