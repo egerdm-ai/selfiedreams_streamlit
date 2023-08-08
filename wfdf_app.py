@@ -5,7 +5,7 @@ import requests
 # Function to send POST request to your Flask API
 def send_query(query):
     # Add a template to guide the AI's answer
-    query_with_template = f"{query}. Please mention the rule in the content."
+    query_with_template = f"{query}. Please provide an answer according to the content of the rules, specifying the rule and its index. "
     data = {
         'query': query_with_template
     }
