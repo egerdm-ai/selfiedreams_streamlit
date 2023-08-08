@@ -17,7 +17,7 @@ chat_history = []
 # Streamlit layout
 st.title("Seçkin'in test etmesi için yapılan Streamlit App :D")
 
-user_input = st.text_input("Buradan kurallarla ilgili soru sorabilirsiniz: ")
+user_input = st.text_input("Buradan kurallarla ilgili soru sorabilirsiniz: ","Is it considered a foul if the thrower's hand hits the marker after the throw?")
 
 if st.button('Send'):
     # Get the API response
