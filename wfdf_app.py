@@ -4,8 +4,10 @@ import requests
 
 # Function to send POST request to your Flask API
 def send_query(query):
+    # Add a template to guide the AI's answer
+    query_with_template = f"{query}. Please mention the rule in the content."
     data = {
-        'query': query
+        'query': query_with_template
     }
     url = st.secrets["url"]
     response = requests.post(url, json=data)
