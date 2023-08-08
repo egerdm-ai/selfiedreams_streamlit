@@ -29,5 +29,5 @@ if st.button('Send'):
 
     # Display the chat history
     for chat in chat_history:
-        st.markdown(f"{chat[0]}: {chat[1]}")
+        st.markdown(f"{chat[1]}")
 
