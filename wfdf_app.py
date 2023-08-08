@@ -23,11 +23,12 @@ if st.button('Send'):
     # Get the API response
     response = send_query(user_input)
 
-    # Add the user query and API response to the chat history
+    # Add the user query, AI response, and source document to the chat history
     chat_history.append(('You', user_input))
-    chat_history.append(('', response))
+    chat_history.append(('AI', response['answer']))
+    chat_history.append(('Source', response['source_document']))
 
     # Display the chat history
     for chat in chat_history:
-        st.markdown(f"{chat[1]}")
+        st.markdown(f"**{chat[0]}**: {chat[1]}")
 
