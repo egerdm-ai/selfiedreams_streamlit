@@ -1,21 +1,23 @@
 import streamlit as st
 import requests
 
+
 # Function to send POST request to your Flask API
 def send_query(query):
     data = {
         'query': query
     }
-    response = requests.post('https://4a95-34-86-206-243.ngrok-free.app/ask', json=data)
+    url = st.secrets["url"]
+    response = requests.post(url, json=data)
     return response.json()['answer']
 
 # Chat history to display the conversation
 chat_history = []
 
 # Streamlit layout
-st.title('Chatbot')
+st.title("Seçkin'in test etmesi için yapılan Streamlit App :D")
 
-user_input = st.text_input("You: ")
+user_input = st.text_input("Buradan kurallarla ilgili soru sorabilirsiniz: ")
 
 if st.button('Send'):
     # Get the API response
