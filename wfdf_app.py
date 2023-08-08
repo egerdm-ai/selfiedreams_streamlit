@@ -7,7 +7,7 @@ def send_query(query):
     data = {
         'query': query
     }
-    response = requests.post('https://4a95-34-86-206-243.ngrok-free.app/ask', json=data)
+    response = requests.post('https://5830-34-86-206-243.ngrok-free.app/ask', json=data)
     print(response)  # print the raw response
     print(type(response))  # print the type of the response
     return response.json()
