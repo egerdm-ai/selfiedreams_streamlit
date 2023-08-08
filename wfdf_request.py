@@ -1,10 +1,10 @@
 import requests
 
 data = {
-    'query': 'What is the rule for hand fouls in Ultimate Frisbee?'
+    'query': "why?"
 }
 
-response = requests.post('https://cca7-34-86-206-243.ngrok-free.app/ask', json=data)
+response = requests.post('https://b400-34-86-206-243.ngrok-free.app/ask', json=data)
 
 if response.status_code == 200:
     print('Response from the server:')
