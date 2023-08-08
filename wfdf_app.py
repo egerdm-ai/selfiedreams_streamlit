@@ -7,10 +7,9 @@ def send_query(query):
     data = {
         'query': query
     }
-    response = requests.post('https://111b-34-86-206-243.ngrok-free.app/ask', json=data)
-    print(response)  # print the raw response
-    print(type(response))  # print the type of the response
-    return response.json()
+    url = st.secrets["url"]
+    response = requests.post(url, json=data)
+    return response.json()['answer']
 
 # Chat history to display the conversation
 chat_history = []
@@ -24,14 +23,10 @@ if st.button('Send'):
     # Get the API response
     response = send_query(user_input)
 
-    # Add the user query and AI response to the chat history
+    # Add the user query and API response to the chat history
     chat_history.append(('You', user_input))
-    chat_history.append(('AI', response['answer']))
-    # Only add 'Source' to chat history if 'source_document' is in the response
-    if 'source_document' in response:
-        chat_history.append(('Source', response['source_document']))
+    chat_history.append(('AI', response))
 
     # Display the chat history
     for chat in chat_history:
         st.markdown(f"**{chat[0]}**: {chat[1]}")
-
