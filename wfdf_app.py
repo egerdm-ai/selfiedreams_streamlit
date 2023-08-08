@@ -15,7 +15,7 @@ def send_query(query):
 chat_history = []
 
 # Streamlit layout
-st.title("Streamlit App made for Seçkin to test")
+st.title("App made for Seçkin to test")
 
 user_input = st.text_input("You can ask questions about the rules from here: ","Is it considered a foul if the thrower's hand hits the marker after the throw?")
 
