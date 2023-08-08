@@ -15,9 +15,9 @@ def send_query(query):
 chat_history = []
 
 # Streamlit layout
-st.title("Seçkin'in test etmesi için yapılan Streamlit App :D")
+st.title("Streamlit App made for Seçkin to test")
 
-user_input = st.text_input("Buradan kurallarla ilgili soru sorabilirsiniz: ","Is it considered a foul if the thrower's hand hits the marker after the throw?")
+user_input = st.text_input("You can ask questions about the rules from here: ","Is it considered a foul if the thrower's hand hits the marker after the throw?")
 
 if st.button('Send'):
     # Get the API response
@@ -29,5 +29,5 @@ if st.button('Send'):
 
     # Display the chat history
     for chat in chat_history:
-        st.markdown(f"**{chat[0]}**: {chat[1]}")
+        st.markdown(f"{chat[0]}: {chat[1]}")
 
